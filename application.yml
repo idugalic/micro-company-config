@@ -1,0 +1,10 @@
+info:
+  app:
+    name: Catalog service from app yml - cloud
+    description: Product Catalog Microservice
+  url: https://bitbucket.org/idugalic_microservices_lab/micro-ecommerce/wiki/Home
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+	  
