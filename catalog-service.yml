@@ -20,7 +20,7 @@ authserver:
 oauth2:
   resource:
     jwt:
-      keyUri: http://localhost:9999/uaa/oauth/token_key
+      keyUri: http://${authserver.hostname}:${authserver.port}/${authserver.contextPath}/oauth/token_key
     id: openid
     serviceId: ${PREFIX:}resource
   client:
