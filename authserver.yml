@@ -13,6 +13,7 @@ security:
   user:
     password: password
 
+
 ---
 
 spring:
