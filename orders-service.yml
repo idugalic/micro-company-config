@@ -1,6 +1,6 @@
 server:
   port: 8083
-  contextPath: /
+  contextPath: /api
 
 spring:
   jpa:
