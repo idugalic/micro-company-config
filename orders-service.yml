@@ -1,21 +1,32 @@
 server:
   port: 8083
 
-spring:
-  jpa:
-   hibernate:
-      ddl-auto: create-drop
-
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://localhost:8761/eureka/
-      
 # The OAuth2 server definition that would be used to send the authorization requests to
 authserver:
     hostname: localhost
     port: 9999
     contextPath: uaa
+
+spring:
+  jpa:
+   hibernate:
+      ddl-auto: create-drop
+  oauth2:
+   client:
+     accessTokenUri: http://${authserver.hostname}:${authserver.port}/${authserver.contextPath}/oauth/token
+     userAuthorizationUri: http://${authserver.hostname}:${authserver.port}/${authserver.contextPath}/oauth/authorize
+     clientId: acme
+     clientSecret: acmesecret
+   resource:
+      jwt:
+        keyUri: http://${authserver.hostname}:${authserver.port}/${authserver.contextPath}/oauth/token_key
+      id: openid
+      serviceId: ${PREFIX:}resource
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
 
 oauth2:
   resource:
