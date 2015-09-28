@@ -2,7 +2,7 @@
 info:
   app:
    name: Recommendations service
-    description: Recommendations Microservice
+   description: Recommendations Microservice
 
 server:
   port: 8082
