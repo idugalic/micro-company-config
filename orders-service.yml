@@ -3,11 +3,6 @@ info:
   app:
     name: Orders management service
     description: Orders  Management Microservice
-  build:
-    artifact: ${project.artifactId}
-    name: ${project.name}
-    description: ${project.description}
-    version: ${project.version}
 
 server:
   port: 8083
