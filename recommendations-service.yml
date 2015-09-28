@@ -3,11 +3,6 @@ info:
   app:
    name: Recommendations service
     description: Recommendations Microservice
-  build:
-    artifact: ${project.artifactId}
-    name: ${project.name}
-    description: ${project.description}
-    version: ${project.version}
 
 server:
   port: 8082
