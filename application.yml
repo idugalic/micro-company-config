@@ -1,5 +1,5 @@
 info:
   app:
-    name: ${project.name}
+    name: Ecommerce microservice
     description: Microservice
   
