@@ -11,6 +11,19 @@ authserver:
     hostname: localhost
     port: 9999
     contextPath: uaa
+    
+spring:
+  oauth2:
+   client:
+     accessTokenUri: http://${authserver.hostname}:${authserver.port}/${authserver.contextPath}/oauth/token
+     userAuthorizationUri: http://${authserver.hostname}:${authserver.port}/${authserver.contextPath}/oauth/authorize
+     clientId: acme
+     clientSecret: acmesecret
+   resource:
+      jwt:
+        keyUri: http://${authserver.hostname}:${authserver.port}/${authserver.contextPath}/oauth/token_key
+      id: openid
+      serviceId: ${PREFIX:}resource
 
 oauth2:
   resource:
