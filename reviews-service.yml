@@ -3,11 +3,6 @@ info:
   app:
     name: Review service
     description: Review Microservice
-  build:
-    artifact: ${project.artifactId}
-    name: ${project.name}
-    description: ${project.description}
-    version: ${project.version}
     
 server:
   port: 8081
