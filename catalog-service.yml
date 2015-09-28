@@ -1,3 +1,14 @@
+## Info endpoint
+info:
+  app:
+    name: Catalog service
+    description: Product Catalog Microservice
+  build:
+    artifact: ${project.artifactId}
+    name: ${project.name}
+    description: ${project.description}
+    version: ${project.version}
+
 server:
   port: 8080
 
