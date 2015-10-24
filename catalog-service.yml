@@ -11,17 +11,6 @@ spring:
   jpa:
    hibernate:
       ddl-auto: create-drop
-  oauth2:
-   client:
-     accessTokenUri: http://${authserver.hostname}:${authserver.port}/${authserver.contextPath}/oauth/token
-     userAuthorizationUri: http://${authserver.hostname}:${authserver.port}/${authserver.contextPath}/oauth/authorize
-     clientId: acme
-     clientSecret: acmesecret
-   resource:
-      jwt:
-        keyUri: http://${authserver.hostname}:${authserver.port}/${authserver.contextPath}/oauth/token_key
-      id: openid
-      serviceId: ${PREFIX:}resource
 
 eureka:
   client:
