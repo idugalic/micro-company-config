@@ -86,7 +86,11 @@ authserver:
     port: 9999
     contextPath: uaa
     
-# Define the port where the API gateway server would be running. This could always be port 8080
-# since each docker container has it's own IP
-#server:
-#  port: 8080
+---
+spring:
+  profiles: cloud
+
+authserver:
+    hostname: http://microservices-authserver-idugalic.cfapps.io
+    port: 80
+    contextPath: uaa
