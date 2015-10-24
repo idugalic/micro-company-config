@@ -38,9 +38,9 @@ oauth2:
  
 
 ---
-# comments-webservice instance when used on Docker
 spring:
   profiles: docker
+
 eureka:
 # Register our microservices to Eureka using hostnames in a Docker environment will not work, they will all get 
 # one and the same hostname. Instead we configure them to use its IP address during registration with Eureka.
@@ -50,13 +50,18 @@ eureka:
     serviceUrl:
       defaultZone: http://192.168.59.103:8761/eureka/
       
-# The OAuth2 server definition that would be used to send the authorization requests to
 authserver:
     hostname: 192.168.59.103
     port: 9999
     contextPath: uaa
-    
-# Define the port where the API gateway server would be running. This could always be port 8080
-# since each docker container has it's own IP
-#server:
-#  port: 8080
+
+
+---
+spring:
+  profiles: cloud
+
+authserver:
+    hostname: http://authserver-idugalic.cfapps.io
+    port: 80
+    contextPath: uaa
+  
