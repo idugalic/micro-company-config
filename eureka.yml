@@ -5,7 +5,7 @@ server:
 # for server discovery
 eureka:
   instance:
-    hostname: localhost
+    hostname: ${vcap.application.uris[0]:localhost}
   client:
     registerWithEureka: false
     fetchRegistry: false
