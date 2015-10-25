@@ -35,9 +35,9 @@ eureka:
     
 spring:
   sso:
-      home:
-        secure: false
-        path: /,/**/*.html
+    home:
+      secure: false
+      path: /,/**/*.html
   oauth2:
    client:
      accessTokenUri: http://${authserver.hostname}:${authserver.port}/${authserver.contextPath}/oauth/token
