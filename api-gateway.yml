@@ -33,14 +33,19 @@ eureka:
     serviceUrl:
       defaultZone: ${vcap.services.eureka.credentials.uri:http://localhost:8761}/eureka/
     
-# Define settings for Single-Sign-On with OAuth2; this means that we need to relay the OAuth token 
-# to the subsequent resources that are proxied by the Zuul api gateway.
+spring:
+  oauth2:
+   client:
+     accessTokenUri: http://${authserver.hostname}:${authserver.port}/${authserver.contextPath}/oauth/token
+     userAuthorizationUri: http://${authserver.hostname}:${authserver.port}/${authserver.contextPath}/oauth/authorize
+     clientId: acme
+     clientSecret: acmesecret
+   resource:
+      jwt:
+        keyUri: http://${authserver.hostname}:${authserver.port}/${authserver.contextPath}/oauth/token_key
+      id: openid
+      serviceId: ${PREFIX:}resource
 
-# The home definition tells us to allow anonymous access (secure: false) to the static resources that
-# are accessed through the Zuul proxy.
-
-# Remaining properties are used by the OAuth2 SSO to determine where the authorization server is and
-# what client crendentials to use to access that server.
 oauth2:
   sso:
     home:
