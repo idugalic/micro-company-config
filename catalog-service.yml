@@ -62,6 +62,16 @@ spring:
 
 authserver:
     hostname: http://microservices-authserver-idugalic.cfapps.io
-    port: 80
     contextPath: uaa
-  
+
+oauth2:
+  resource:
+    jwt:
+      keyUri: http://${authserver.hostname}/${authserver.contextPath}/oauth/token_key
+    id: openid
+    serviceId: ${PREFIX:}resource
+  client:
+    tokenUri: http://${authserver.hostname/${authserver.contextPath}/oauth/token
+    authorizationUri: http://${authserver.hostname}/${authserver.contextPath}/oauth/authorize
+    clientId: acme
+    clientSecret: acmesecret
