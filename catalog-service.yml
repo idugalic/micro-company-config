@@ -12,7 +12,7 @@ spring:
    hibernate:
       ddl-auto: create-drop
   oauth2:
-   resource:
+    resource:
       jwt:
         keyUri: http://${authserver.hostname}:${authserver.port}/${authserver.contextPath}/oauth/token_key
 
@@ -23,9 +23,9 @@ eureka:
       
 # The OAuth2 server definition that would be used to send the authorization requests to
 authserver:
-    hostname: localhost
-    port: 9999
-    contextPath: uaa
+  hostname: localhost
+  port: 9999
+  contextPath: uaa
 
 
 ---
@@ -42,9 +42,9 @@ eureka:
       defaultZone: http://192.168.59.103:8761/eureka/
       
 authserver:
-    hostname: 192.168.59.103
-    port: 9999
-    contextPath: uaa
+  hostname: 192.168.59.103
+  port: 9999
+  contextPath: uaa
 
 
 ---
@@ -52,6 +52,6 @@ spring:
   profiles: cloud
 
 authserver:
-    hostname: http://microservices-authserver-idugalic.cfapps.io
-    port: 80
-    contextPath: uaa
+  hostname: http://microservices-authserver-idugalic.cfapps.io
+  port: 80
+  contextPath: uaa
