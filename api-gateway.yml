@@ -54,22 +54,7 @@ spring:
         keyUri: http://${authserver.hostname}:${authserver.port}/${authserver.contextPath}/oauth/token_key
       id: openid
       serviceId: ${PREFIX:}resource
-      
-oauth2:
-  sso:
-    home:
-      secure: false
-      path: /,/**/*.html
-  client:
-    accessTokenUri: http://${authserver.hostname}:${authserver.port}/${authserver.contextPath}/oauth/token
-    userAuthorizationUri: http://${authserver.hostname}:${authserver.port}/${authserver.contextPath}/oauth/authorize
-    clientId: acme
-    clientSecret: acmesecret
-  resource:
-    jwt:
-      keyUri: http://${authserver.hostname}:${authserver.port}/${authserver.contextPath}/oauth/token_key
-    id: openid
-    serviceId: ${PREFIX:}resource
+
 # The userInfoUri is used to authenticate the user so that SSO token can be relayed forward. It needs to either be
 # a physical endpoint (defined using userInfoUri) OR can be bypassed if you use a JSON web token (JWT) that stores
 # information about grants and authentication in the token itself.
