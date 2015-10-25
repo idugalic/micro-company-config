@@ -5,9 +5,6 @@ server:
 # for server discovery
 eureka:
   instance:
-    leaseRenewalIntervalInSeconds: 10
-    metadataMap:
-      instanceId: ${vcap.application.instance_id:${spring.application.name}:${server.port:8080}}
     hostname: ${vcap.application.uris[0]:localhost}
   client:
     registerWithEureka: false
