@@ -15,6 +15,8 @@ spring:
     resource:
       jwt:
         keyUri: http://${authserver.hostname}:${authserver.port}/${authserver.contextPath}/oauth/token_key
+      id: openid
+      serviceId: ${PREFIX:}resource
 
 eureka:
   client:
