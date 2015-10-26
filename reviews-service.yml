@@ -60,8 +60,3 @@ eureka:
   instance:
     hostname: ${vcap.application.uris[0]}
     nonSecurePort: 80
-    
-spring:
-  data:
-    mongodb:
-      uri: mongodb://CloudFoundry_vbo0ket7:plavo05@ds045734.mongolab.com:45734/CloudFoundry_vbo0ket7_pt6n503h
