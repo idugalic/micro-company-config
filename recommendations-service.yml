@@ -32,7 +32,7 @@ logging:
      org:
        springframework:
          data:
-            neo4:DEBUG
+            neo4j: DEBUG
 ---
 spring:
   profiles: docker
