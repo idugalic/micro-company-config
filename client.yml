@@ -53,24 +53,22 @@ logging:
     org.springframework.security: DEBUG
     
 ---
-
 spring:
   profiles: docker
-spring: 
-  oauth2:
-    sso:
-      loginPath: /dashboard/login
-      logoutPath: /dashboard/logout
-    resource:
-      jwt:
-        keyUri: http://${AUTHSERVER_PORT_8761_TCP_ADDR:192.168.59.103}:9999/uaa/oauth/token_key
-      id: openid
-      serviceId: ${PREFIX:}resource
-    client:
-      accessTokenUri: http://${AUTHSERVER_PORT_8761_TCP_ADDR:192.168.59.103}:9999/uaa/oauth/token
-      userAuthorizationUri: http://${AUTHSERVER_PORT_8761_TCP_ADDR:192.168.59.103}:9999/uaa/oauth/authorize
-      clientId: acme
-      clientSecret: acmesecret    
+eureka:
+# Register our microservices to Eureka using hostnames in a Docker environment will not work, they will all get 
+# one and the same hostname. Instead we configure them to use its IP address during registration with Eureka.
+  instance:
+    preferIpAddress: true
+  client:
+    serviceUrl:
+      defaultZone: http://192.168.59.103:8761/eureka/
+      
+# The OAuth2 server definition that would be used to send the authorization requests to
+authserver:
+    hostname: 192.168.59.103
+    port: 9999
+    contextPath: uaa   
 
 ---      
 spring:
