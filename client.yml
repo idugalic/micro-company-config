@@ -31,9 +31,8 @@ authserver:
 spring:
   oauth2:
     sso:
-      home:
-        secure: false
-        path: /,/**/*.html
+      loginPath: /dashboard/login
+      logoutPath: /dashboard/logout
     client:
       accessTokenUri: http://${authserver.hostname}:${authserver.port}/${authserver.contextPath}/oauth/token
       userAuthorizationUri: http://${authserver.hostname}:${authserver.port}/${authserver.contextPath}/oauth/authorize
