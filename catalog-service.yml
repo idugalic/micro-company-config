@@ -1,16 +1,16 @@
 ## Info endpoint
 info:
   app:
-    name: Catalog service
-    description: Product Catalog Microservice
+    name: Blog service - Command Side
+    description: Blog service - Command Side (CQRS)
 
 server:
   port: 8080
+  
+management:
+    port: 9090
 
 spring:
-  jpa:
-   hibernate:
-      ddl-auto: create-drop
   oauth2:
     resource:
       jwt:
@@ -57,7 +57,7 @@ spring:
   profiles: cloud
 
 authserver:
-  hostname: http://microservices-authserver-idugalic.cfapps.io
+  hostname: http://authserver-idugalic.cfapps.io
   port: 80
   contextPath: uaa
   
