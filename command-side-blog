@@ -6,9 +6,7 @@ info:
 
 server:
   port: 8080
-  
-management:
-  port: 9090
+
     
 logging:
   level:
