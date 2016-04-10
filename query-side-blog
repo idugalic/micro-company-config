@@ -5,9 +5,6 @@ info:
 
 server:
   port: 8081
-  
-management:
-  port: 9091
     
 logging:
   level:
