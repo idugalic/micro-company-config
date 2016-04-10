@@ -2,7 +2,13 @@
 # cookies for both the API gateway as well as the OAuth2 authorization server.
 server:
   port: 9999
-  contextPath: /uaa 
+  contextPath: /uaa
+  
+logging:
+  level:
+    org:
+      springframework:
+        security: DEBUG
 
 eureka:
   client:
