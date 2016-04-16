@@ -54,6 +54,13 @@ authserver:
 ---
 spring:
   profiles: docker
+  rabbitmq:
+    hostname: ${MY_RABBIT_PORT_5671_TCP_ADDR}
+    username: test
+    password: password
+  data:
+    mongodb:
+      uri: mongodb://${MY_MONGO_PORT_27017_TCP_ADDR}:${MY_MONGO_PORT_27017_TCP_PORT}/blogposts
 
 eureka:
 # Register our microservices to Eureka using hostnames in a Docker environment will not work, they will all get 
@@ -62,7 +69,7 @@ eureka:
     preferIpAddress: true
   client:
     serviceUrl:
-      defaultZone: http://192.168.99.100:8761/eureka/
+      defaultZone: http://${REGISTRY_PORT_8761_TCP_ADDR}:${REGISTRY_PORT_8761_TCP_PORT}/eureka/
       
 authserver:
   hostname: 192.168.99.100
