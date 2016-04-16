@@ -57,6 +57,14 @@ authserver:
 ---
 spring:
   profiles: docker
+  rabbitmq:
+    hostname: ${MY_RABBIT_PORT_5671_TCP_ADDR}
+    username: test
+    password: password
+  data:
+    mongodb:
+      uri: mongodb://${MY_MONGO_PORT_27017_TCP_ADDR}:${MY_MONGO_PORT_27017_TCP_PORT}/blogposts
+
 
 eureka:
 # Register our microservices to Eureka using hostnames in a Docker environment will not work, they will all get 
@@ -71,22 +79,6 @@ authserver:
   hostname: 192.168.99.100
   port: 9999
   contextPath: uaa
-  
-spring:
-  application:
-    exchange: blog.events.fanout.exchange
-    queue: blog.default.queue
-    databaseName: blogposts
-    eventsCollectionName: events
-    snapshotCollectionName: snapshots
-  rabbitmq:
-    hostname: ${MY_RABBIT_PORT_5671_TCP_ADDR}
-    username: test
-    password: password
-  data:
-    mongodb:
-      uri: mongodb://${MY_MONGO_PORT_27017_TCP_ADDR}:${MY_MONGO_PORT_27017_TCP_PORT}/blogposts
-
 
 ---
 spring:
