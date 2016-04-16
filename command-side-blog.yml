@@ -76,8 +76,8 @@ eureka:
       defaultZone: http://${REGISTRY_PORT_8761_TCP_ADDR}:${REGISTRY_PORT_8761_TCP_PORT}/eureka/
       
 authserver:
-  hostname: 192.168.99.100
-  port: 9999
+  hostname: ${AUTHSERVER_PORT_9999_TCP_ADDR}
+  port: ${AUTHSERVER_1_PORT_9999_TCP_PORT}
   contextPath: uaa
 
 ---
