@@ -1,0 +1,25 @@
+info:
+  app:
+    name: Circuit Breaker
+    description: Hystix - Circuit Breaker - Fault tolerance
+
+server:
+  port: 6161
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${vcap.services.eureka.credentials.uri:http://localhost:8761}/eureka/
+
+---
+spring:
+  profiles: docker
+ 
+eureka:
+# Register our microservices to Eureka using hostnames in a Docker environment will not work, they will all get 
+# one and the same hostname. Instead we configure them to use its IP address during registration with Eureka.
+  instance:
+    preferIpAddress: true
+  client:
+    serviceUrl:
+      defaultZone: http://${REGISTRY_PORT_8761_TCP_ADDR}:${REGISTRY_PORT_8761_TCP_PORT}/eureka/
