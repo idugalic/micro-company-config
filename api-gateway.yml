@@ -17,10 +17,6 @@ authserver:
 # The application/services are defined in the bootstrap.yml file of individual applications
 # using the spring.application.name property.
 
-# Note that we don't proxy the calls to the authorization server. The reason being that 
-# Spring cloud security would need to secure the api gateway before it can route the 
-# requests using zuul
-
 zuul:
   routes:
     command-side-blog:
@@ -58,18 +54,8 @@ spring:
           -----END PUBLIC KEY-----
 
 
-# The userInfoUri is used to authenticate the user so that SSO token can be relayed forward. It needs to either be
-# a physical endpoint (defined using userInfoUri) OR can be bypassed if you use a JSON web token (JWT) that stores
-# information about grants and authentication in the token itself.
-
-# Note that the "/user" endpoint needs to provide the principle of the logged in user (/me endpoint)
-#    resource: 
-#      userInfoUri: http://${authserver.hostname}:${authserver.port}/${authserver.contextPath}/me
-#      preferTokenInfo: false 
-
 
 ---
-# Auth-server instance when used on Docker
 spring:
   profiles: docker
 eureka:
