@@ -20,17 +20,13 @@ authserver:
 zuul:
   routes:
     command-side-blog:
-      path: /blogposts/**
-      stripPrefix: false
+      path: /command/blogposts/**
     query-side-blog:
-      path: /blogposts/**
-      stripPrefix: false
+      path: /query/blogposts/**
     command-side-project:
-      path: /projects/**
-      stripPrefix: false
+      path: /command/projects/**
     query-side-project:
-      path: /projects/**
-      stripPrefix: false
+      path: /query/projects/**
 
 # Define the Eureka server that handles service registration
 eureka:
