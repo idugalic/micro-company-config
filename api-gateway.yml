@@ -23,14 +23,14 @@ authserver:
 
 zuul:
   routes:
-    catalog-service:
-      path: /catalog/**
-    reviews-service:
-      path: /reviews/**
-    recommendations-service:
-      path: /recommendations/**
-    orders-service:
-      path: /orders/**
+    command-side-blog:
+      path: /blogposts/**
+    query-side-blog:
+      path: /blogposts/**
+    command-side-project:
+      path: /projects/**
+    query-side-project:
+      path: /projects/**
 
 # Define the Eureka server that handles service registration
 eureka:
@@ -57,6 +57,7 @@ spring:
           MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAnGp/Q5lh0P8nPL21oMMrt2RrkT9AW5jgYwLfSUnJVc9G6uR3cXRRDCjHqWU5WYwivcF180A6CWp/ireQFFBNowgc5XaA0kPpzEtgsA5YsNX7iSnUibB004iBTfU9hZ2Rbsc8cWqynT0RyN4TP1RYVSeVKvMQk4GT1r7JCEC+TNu1ELmbNwMQyzKjsfBXyIOCFU/E94ktvsTZUHF4Oq44DBylCDsS1k7/sfZC2G5EU7Oz0mhG8+Uz6MSEQHtoIi6mc8u64Rwi3Z3tscuWG2ShtsUFuNSAFNkY7LkLn+/hxLCu2bNISMaESa8dG22CIMuIeRLVcAmEWEWH5EEforTg+QIDAQAB
           -----END PUBLIC KEY-----
 
+
 # The userInfoUri is used to authenticate the user so that SSO token can be relayed forward. It needs to either be
 # a physical endpoint (defined using userInfoUri) OR can be bypassed if you use a JSON web token (JWT) that stores
 # information about grants and authentication in the token itself.
@@ -78,24 +79,10 @@ eureka:
     preferIpAddress: true
   client:
     serviceUrl:
-      defaultZone: http://192.168.59.103:8761/eureka/
-      
+      defaultZone: http://${REGISTRY_PORT_8761_TCP_ADDR}:${REGISTRY_PORT_8761_TCP_PORT}/eureka/
+
 # The OAuth2 server definition that would be used to send the authorization requests to
 authserver:
-    hostname: 192.168.59.103
-    port: 9999
-    contextPath: uaa
-    
----
-spring:
-  profiles: cloud
-
-authserver:
-    hostname: http://microservices-authserver-idugalic.cfapps.io
-    port: 80
-    contextPath: uaa
-
-eureka:
-  instance:
-    hostname: ${vcap.application.uris[0]}
-    nonSecurePort: 80
+  hostname: ${AUTHSERVER_PORT_9999_TCP_ADDR}
+  port: ${AUTHSERVER_1_PORT_9999_TCP_PORT}
+  contextPath: uaa
