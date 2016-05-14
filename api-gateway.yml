@@ -41,7 +41,7 @@ spring:
       queue: blog.gateway.event.stream
     project:
       exchange: project.events.fanout.exchange
-      queue: project.gateway.event.queue
+      queue: project.gateway.event.stream
   oauth2:
     sso:
       home:
