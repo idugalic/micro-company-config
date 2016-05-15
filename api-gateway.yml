@@ -36,12 +36,11 @@ eureka:
 
 spring:
   application:
+    queue: gateway.event.stream
     blog:
       exchange: blog.events.fanout.exchange
-      queue: blog.gateway.event.stream
     project:
       exchange: project.events.fanout.exchange
-      queue: project.gateway.event.stream
   rabbitmq:
     hostname: 192.168.99.103
     username: test
