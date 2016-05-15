@@ -23,7 +23,7 @@ spring:
     eventsCollectionName: events
     snapshotCollectionName: snapshots
   rabbitmq:
-    hostname: 192.168.99.100
+    hostname: 192.168.99.103
     username: test
     password: password
   data:
