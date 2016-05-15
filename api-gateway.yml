@@ -37,6 +37,7 @@ eureka:
 spring:
   application:
     queue: gateway.event.stream
+    terminal: gateway.axon.terminal
     blog:
       exchange: blog.events.fanout.exchange
     project:
