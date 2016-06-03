@@ -43,7 +43,7 @@ spring:
     project:
       exchange: project.events.fanout.exchange
   rabbitmq:
-    hostname: 192.168.99.103
+    hostname: 192.168.99.100
     username: test
     password: password
   oauth2:
@@ -69,6 +69,14 @@ spring:
 ---
 spring:
   profiles: docker
+  rabbitmq:
+    hostname: ${MY_RABBIT_PORT_5671_TCP_ADDR}
+    username: test
+    password: password
+  data:
+    mongodb:
+      uri: mongodb://${MY_MONGO_PORT_27017_TCP_ADDR}:${MY_MONGO_PORT_27017_TCP_PORT}/blogposts
+
 eureka:
 # Register our microservices to Eureka using hostnames in a Docker environment will not work, they will all get 
 # one and the same hostname. Instead we configure them to use its IP address during registration with Eureka.
