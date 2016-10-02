@@ -58,12 +58,12 @@ authserver:
 spring:
   profiles: docker
   rabbitmq:
-    hostname: ${MY_RABBIT_PORT_5671_TCP_ADDR}
+    hostname: my-rabbit
     username: test
     password: password
   data:
     mongodb:
-      uri: mongodb://${MY_MONGO_PORT_27017_TCP_ADDR}:${MY_MONGO_PORT_27017_TCP_PORT}/blogposts
+      uri: mongodb://my-mongo:27017/blogposts
 
 
 eureka:
@@ -73,11 +73,11 @@ eureka:
     preferIpAddress: true
   client:
     serviceUrl:
-      defaultZone: http://${REGISTRY_PORT_8761_TCP_ADDR}:${REGISTRY_PORT_8761_TCP_PORT}/eureka/
+      defaultZone: http://registry:8761/eureka/
       
 authserver:
-  hostname: ${AUTHSERVER_PORT_9999_TCP_ADDR}
-  port: ${AUTHSERVER_1_PORT_9999_TCP_PORT}
+  hostname: authserver
+  port: 9999
   contextPath: uaa
 
 ---
