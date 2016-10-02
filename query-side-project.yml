@@ -19,7 +19,7 @@ spring:
     queue: project.view.event.stream
     terminal: project.axon.terminal
   rabbitmq:
-    hostname: http://${vcap.services.rabbitmq.credentials.hostname:localhost}
+    hostname: rabbitmq.local.pcfdev.io
     username: ${vcap.services.rabbitmq.credentials.username:test}
     password: ${vcap.services.rabbitmq.credentials.password:password}
   data:
