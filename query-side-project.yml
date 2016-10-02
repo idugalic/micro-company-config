@@ -19,7 +19,7 @@ spring:
     queue: project.view.event.stream
     terminal: project.axon.terminal
   rabbitmq:
-    hostname: 127.0.0.1
+    hostname: localhost
     username: guest
     password: guest
   data:
