@@ -24,7 +24,7 @@ spring:
     password: password
   data:
     mongodb:
-      uri: mongodb://192.168.99.100:27017/projects
+      uri: mongodb://idugalic:idugalic@ds047666.mlab.com:47666/micro-mongo
 
       
 security:
