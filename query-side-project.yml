@@ -19,9 +19,9 @@ spring:
     queue: project.view.event.stream
     terminal: project.axon.terminal
   rabbitmq:
-    hostname: ${vcap.services.rabbitmq.credentials.hostname}
-    username: ${vcap.services.rabbitmq.credentials.username}
-    password: ${vcap.services.rabbitmq.credentials.password}
+    hostname: ${vcap.services.rabbitmq.credentials.hostname:localhost}
+    username: ${vcap.services.rabbitmq.credentials.username:test}
+    password: ${vcap.services.rabbitmq.credentials.password:password}
   data:
     mongodb:
       uri: mongodb://idugalic:idugalic@ds047666.mlab.com:47666/micro-mongo
