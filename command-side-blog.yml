@@ -28,7 +28,7 @@ spring:
     password: password
   data:
     mongodb:
-      uri: mongodb://192.168.99.103:27017/blogposts
+      uri: mongodb://127.0.0.1:27017/blogposts
       
 security:
   oauth2:
