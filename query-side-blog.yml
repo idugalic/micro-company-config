@@ -19,12 +19,12 @@ spring:
     queue: blog.view.event.stream
     terminal: blog.axon.terminal
   rabbitmq:
-    hostname: 192.168.99.100
+    hostname: 127.0.0.1
     username: test
     password: password
   data:
     mongodb:
-      uri: mongodb://192.168.99.100:27017/blogposts
+      uri: mongodb://127.0.0.1:27017/blogposts
 
       
 security:
