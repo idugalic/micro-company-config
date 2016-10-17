@@ -23,12 +23,12 @@ spring:
     eventsCollectionName: events
     snapshotCollectionName: snapshots
   rabbitmq:
-    hostname: 192.168.99.103
+    hostname: 127.0.0.1
     username: test
     password: password
   data:
     mongodb:
-      uri: mongodb://192.168.99.103:27017/projects
+      uri: mongodb://127.0.0.1:27017/projects
       
 security:
   oauth2:
