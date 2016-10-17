@@ -20,8 +20,8 @@ spring:
     terminal: blog.axon.terminal
   rabbitmq:
     hostname: 127.0.0.1
-    username: test
-    password: password
+    username: guest
+    password: guest
   data:
     mongodb:
       uri: mongodb://127.0.0.1:27017/blogposts
