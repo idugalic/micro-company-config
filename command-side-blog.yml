@@ -28,7 +28,7 @@ spring:
     password: guest
   data:
     mongodb:
-      uri: mongodb://127.0.0.1:27017/blogposts
+      uri: ${vcap.services.mongo.credentials.uri:mongodb://127.0.0.1:27017}/blogposts
       
 security:
   oauth2:
