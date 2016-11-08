@@ -89,3 +89,7 @@ authserver:
   port: 80
   contextPath: uaa
   
+eureka:
+  instance:
+    hostname: ${vcap.application.uris[0]}
+    nonSecurePort: 80
