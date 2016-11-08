@@ -5,7 +5,7 @@ info:
     description: Blog service - Command Side (CQRS)
 
 server:
-  port: 8080
+  port: ${PORT:8080}
 
     
 logging:
@@ -44,7 +44,7 @@ security:
 eureka:
   client:
     serviceUrl:
-      defaultZone: ${vcap.services.eureka.credentials.uri:http://localhost:8761}/eureka/
+      defaultZone: ${vcap.services.registry.credentials.uri:http://localhost:8761}/eureka/
 
       
 # The OAuth2 server definition that would be used to send the authorization requests to
@@ -85,11 +85,7 @@ spring:
   profiles: cloud
 
 authserver:
-  hostname: http://authserver-idugalic.cfapps.io
+  hostname: ${vcap.services.authserver.credentials.uri}
   port: 80
   contextPath: uaa
   
-eureka:
-  instance:
-    hostname: ${vcap.application.uris[0]}
-    nonSecurePort: 80
