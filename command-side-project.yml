@@ -5,7 +5,7 @@ info:
     description: Project service - Command Side (CQRS)
 
 server:
-  port: 8082
+  port: ${PORT:8082}
 
     
 logging:
@@ -28,7 +28,7 @@ spring:
     password: guest
   data:
     mongodb:
-      uri: mongodb://127.0.0.1:27017/projects
+      uri: ${vcap.services.mongo.credentials.uri:mongodb://127.0.0.1:27017}/projects
       
 security:
   oauth2:
@@ -44,7 +44,7 @@ security:
 eureka:
   client:
     serviceUrl:
-      defaultZone: ${vcap.services.eureka.credentials.uri:http://localhost:8761}/eureka/
+      defaultZone: ${vcap.services.registry.credentials.uri:http://localhost:8761}/eureka/
 
       
 # The OAuth2 server definition that would be used to send the authorization requests to
@@ -85,11 +85,8 @@ spring:
   profiles: cloud
 
 authserver:
-  hostname: http://authserver-idugalic.cfapps.io
+  hostname: ${vcap.services.authserver.credentials.uri}
   port: 80
   contextPath: uaa
   
-eureka:
-  instance:
-    hostname: ${vcap.application.uris[0]}
-    nonSecurePort: 80
+
