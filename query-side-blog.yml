@@ -80,6 +80,9 @@ authserver:
 ---
 spring:
   profiles: cloud
+  jpa:
+    hibernate:
+      ddl-auto: create
 
 authserver:
   hostname: ${vcap.services.authserver.credentials.uri}
