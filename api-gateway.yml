@@ -66,9 +66,17 @@ spring:
 
 
 
+
 ---
 spring:
   profiles: docker
+  rabbitmq:
+    hostname: my-rabbit
+    username: test
+    password: password
+  data:
+    mongodb:
+      uri: mongodb://my-mongo:27017/blogposts
 
 eureka:
 # Register our microservices to Eureka using hostnames in a Docker environment will not work, they will all get 
