@@ -4,7 +4,7 @@ info:
     description: Project service - Query Side (CQRS)
 
 server:
-  port: 8083
+  port: ${PORT:8083}
     
 logging:
   level:
@@ -19,13 +19,13 @@ spring:
     queue: project.view.event.stream
     terminal: project.axon.terminal
   rabbitmq:
-    hostname: ${vcap.services.rabbitmq.credentials.uri:127.0.0.1}
-    username: ${vcap.services.rabbitmq.credentials.username:guest}
-    password: ${vcap.services.rabbitmq.credentials.password:guest}
+    hostname: 127.0.0.1
+    username: guest
+    password: guest
 
   data:
     mongodb:
-      uri: mongodb://127.0.0.1:27017/blogposts
+      uri: ${vcap.services.mongo.credentials.uri:mongodb://127.0.0.1:27017}/projects
 
       
 security:
@@ -42,7 +42,7 @@ security:
 eureka:
   client:
     serviceUrl:
-      defaultZone: ${vcap.services.service-registry.credentials.uri:http://localhost:8761}/eureka/
+      defaultZone: ${vcap.services.registry.credentials.uri:http://localhost:8761}/eureka/
 
       
 # The OAuth2 server definition that would be used to send the authorization requests to
@@ -82,9 +82,19 @@ authserver:
 ---
 spring:
   profiles: cloud
+  jpa:
+    database:
+    show-sql: true
+    hibernate:
+      naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy
+      ddl-auto: create
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5Dialect
+
 
 authserver:
-  hostname: http://authserver-idugalic.cfapps.io
+  hostname: ${vcap.services.authserver.credentials.uri}
   port: 80
   contextPath: uaa
   
