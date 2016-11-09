@@ -81,8 +81,15 @@ authserver:
 spring:
   profiles: cloud
   jpa:
+    database:
+    show-sql: true
     hibernate:
+      naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy
       ddl-auto: create
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5Dialect
+
 
 authserver:
   hostname: ${vcap.services.authserver.credentials.uri}
