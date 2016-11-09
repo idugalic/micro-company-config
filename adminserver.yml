@@ -5,12 +5,12 @@ info:
     description: Admin Server
 
 server:
-  port: 9998
+  port: ${PORT:9998}
 
 eureka:
   client:
     serviceUrl:
-      defaultZone: ${vcap.services.eureka.credentials.uri:http://localhost:8761}/eureka/
+      defaultZone: ${vcap.services.registry.credentials.uri:http://localhost:8761}/eureka/
 
 
 ---
