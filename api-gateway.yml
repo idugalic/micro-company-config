@@ -5,7 +5,7 @@ info:
 
 # Define the port where the API gateway server would be running
 server:
-  port: 9000
+  port: ${PORT:9000}
 
 # The OAuth2 server definition that would be used to send the authorization requests to
 authserver:
@@ -32,7 +32,7 @@ zuul:
 eureka:
   client:
     serviceUrl:
-      defaultZone: ${vcap.services.eureka.credentials.uri:http://localhost:8761}/eureka/
+      defaultZone: ${vcap.services.registry.credentials.uri:http://localhost:8761}/eureka/
 
 spring:
   application:
@@ -69,13 +69,6 @@ spring:
 ---
 spring:
   profiles: docker
-  rabbitmq:
-    hostname: my-rabbit
-    username: test
-    password: password
-  data:
-    mongodb:
-      uri: mongodb://my-mongo:27017/blogposts
 
 eureka:
 # Register our microservices to Eureka using hostnames in a Docker environment will not work, they will all get 
@@ -91,3 +84,17 @@ authserver:
   hostname: authserver
   port: 9999
   contextPath: uaa
+  
+---
+spring:
+  profiles: cloud
+
+authserver:
+  hostname: ${vcap.services.authserver.credentials.uri}
+  port: 80
+  contextPath: uaa
+  
+eureka:
+  instance:
+    hostname: ${vcap.application.uris[0]}
+    nonSecurePort: 80
