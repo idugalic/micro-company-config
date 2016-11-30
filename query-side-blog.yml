@@ -23,7 +23,6 @@ spring:
   application:
     exchange: blog.events.fanout.exchange
     queue: blog.view.event.stream
-    terminal: blog.axon.terminal
   rabbitmq:
     hostname: 127.0.0.1
     username: guest
