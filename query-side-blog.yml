@@ -10,8 +10,14 @@ logging:
   level:
     root: INFO
     org.springframework: INFO
-    org.axonframework: DEBUG
+    org.axonframework: INFO
     com.idugalic: DEBUG
+    
+axon:
+  eventhandling:
+    processors:
+      default:
+        source: messageSourceBlog
 
 spring:
   application:
@@ -22,10 +28,6 @@ spring:
     hostname: 127.0.0.1
     username: guest
     password: guest
-  data:
-    mongodb:
-      uri: ${vcap.services.mongo.credentials.uri:mongodb://127.0.0.1:27017}/blogposts
-
       
 security:
   oauth2:
@@ -58,9 +60,7 @@ spring:
     hostname: my-rabbit
     username: test
     password: password
-  data:
-    mongodb:
-      uri: mongodb://my-mongo:27017/blogposts
+
 
 
 eureka:
