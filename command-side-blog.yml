@@ -12,24 +12,19 @@ logging:
   level:
     root: INFO
     org.springframework: INFO
-    org.axonframework: DEBUG
+    org.axonframework: INFO
     com.idugalic: DEBUG
 
 spring:
-  application:
-    exchange: blog.events.fanout.exchange
-    queue: blog.default.queue
-    databaseName: blogposts
-    eventsCollectionName: events
-    snapshotCollectionName: snapshots
   rabbitmq:
     hostname: 127.0.0.1
-    username: guest
+    username: guest1
     password: guest
-  data:
-    mongodb:
-      uri: ${vcap.services.mongo.credentials.uri:mongodb://127.0.0.1:27017}/blogposts
-      
+    
+axon:
+  amqp:
+    exchange: blog.events.fanout.exchange
+ 
 security:
   oauth2:
     resource:
@@ -61,9 +56,6 @@ spring:
     hostname: my-rabbit
     username: test
     password: password
-  data:
-    mongodb:
-      uri: mongodb://my-mongo:27017/blogposts
 
 
 eureka:
