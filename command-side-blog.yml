@@ -18,7 +18,7 @@ logging:
 spring:
   rabbitmq:
     hostname: 127.0.0.1
-    username: guest1
+    username: guest
     password: guest
     
 axon:
