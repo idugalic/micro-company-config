@@ -12,24 +12,19 @@ logging:
   level:
     root: INFO
     org.springframework: INFO
-    org.axonframework: DEBUG
+    org.axonframework: INFO
     com.idugalic: DEBUG
+    
+axon:
+  amqp:
+    exchange: project.events.fanout.exchange
 
 spring:
-  application:
-    exchange: project.events.fanout.exchange
-    queue: project.default.queue
-    databaseName: projects
-    eventsCollectionName: events
-    snapshotCollectionName: snapshots
   rabbitmq:
     hostname: 127.0.0.1
     username: guest
     password: guest
-  data:
-    mongodb:
-      uri: ${vcap.services.mongo.credentials.uri:mongodb://127.0.0.1:27017}/projects
-      
+
 security:
   oauth2:
     resource:
@@ -61,10 +56,6 @@ spring:
     hostname: my-rabbit
     username: test
     password: password
-  data:
-    mongodb:
-      uri: mongodb://my-mongo:27017/projects
-
 
 eureka:
 # Register our microservices to Eureka using hostnames in a Docker environment will not work, they will all get 
