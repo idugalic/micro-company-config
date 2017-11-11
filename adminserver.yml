@@ -12,11 +12,6 @@ eureka:
     serviceUrl:
       defaultZone: ${vcap.services.registry.credentials.uri:http://localhost:8761}/eureka/
 
-management:
-  security: 
-    enabled: true
-
-
 
 ---
 spring:

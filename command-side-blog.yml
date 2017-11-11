@@ -4,6 +4,11 @@ info:
     name: Blog service - Command Side
     description: Blog service - Command Side (CQRS)
 
+    
+management:
+  security: 
+    enabled: false
+
 server:
   port: ${PORT:8080}
 

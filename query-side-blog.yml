@@ -3,6 +3,11 @@ info:
     name: Blog service - Query Side
     description: Blog service - Query Side (CQRS)
 
+    
+management:
+  security: 
+    enabled: false
+
 server:
   port: ${PORT:8081}
     

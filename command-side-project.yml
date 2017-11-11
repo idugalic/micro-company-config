@@ -4,6 +4,11 @@ info:
     name: Project service - Command Side
     description: Project service - Command Side (CQRS)
 
+    
+management:
+  security: 
+    enabled: false
+
 server:
   port: ${PORT:8082}
 

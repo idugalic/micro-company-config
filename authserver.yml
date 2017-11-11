@@ -13,3 +13,8 @@ logging:
 security:
   user:
     password: password
+
+    
+management:
+  security: 
+    enabled: false

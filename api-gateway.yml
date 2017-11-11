@@ -3,6 +3,11 @@ info:
   app:
     name: API Gateway
 
+    
+management:
+  security: 
+    enabled: false
+
 # Define the port where the API gateway server would be running
 server:
   port: ${PORT:9000}
