@@ -2,4 +2,9 @@ info:
   app:
     name: My Company
     description: Microservice
+    
+management:
+  security: 
+    enabled: false
+
   
