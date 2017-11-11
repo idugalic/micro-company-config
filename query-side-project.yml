@@ -3,6 +3,10 @@ info:
     name: Project service - Query Side
     description: Project service - Query Side (CQRS)
 
+management:
+  security: 
+    enabled: false
+
 server:
   port: ${PORT:8083}
     
